@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour
 {
     public float moveSpeed = 12.5f;
     public float jumpSpeed = 15;
+    public GameObject infoScreen;
 
     private int moveFwd = 0;
     private int moveRight = 0;
@@ -75,6 +76,10 @@ public class PlayerControl : MonoBehaviour
                 rb.useGravity = true;
             }
         }
+
+        // Info screen toggle
+        if (keyboard.tabKey.wasPressedThisFrame)
+            infoScreen.SetActive(!infoScreen.activeInHierarchy);
     }
 
     void FixedUpdate()
