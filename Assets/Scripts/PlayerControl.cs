@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,12 +18,18 @@ public class PlayerControl : MonoBehaviour
     private bool isFlying = false;
     private float jumpInputTimestamp = 0;
     private int isOnFloor = 0;
+    private bool isInDialogue = false;
     private Rigidbody rb;
+    private MouseLook mouseLookPlayer;
+    private MouseLook mouseLookCamera;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        mouseLookPlayer = GetComponent<MouseLook>();
+        mouseLookCamera = Camera.main.GetComponent<MouseLook>();
     }
 
     void Update()
@@ -78,12 +85,17 @@ public class PlayerControl : MonoBehaviour
         }
 
         // Info screen toggle
-        if (keyboard.tabKey.wasPressedThisFrame)
-            infoScreen.SetActive(!infoScreen.activeInHierarchy);
+        if (keyboard.tabKey.wasPressedThisFrame && !isInDialogue)
+        {
+            SetInfoScreen(!infoScreen.activeInHierarchy);
+        }
     }
 
     void FixedUpdate()
     {
+        if (isInDialogue)
+            return;
+
         // Horizontal movement direction
         Vector3 moveDir = (moveFwd * new Vector3(transform.forward.x, 0, transform.forward.z) + moveRight * transform.right).normalized * (usingSprint ? 1.5f : 1);
         
@@ -109,5 +121,28 @@ public class PlayerControl : MonoBehaviour
     public void setIsOnFloor(int dir)
     {
         isOnFloor += dir;
+    }
+
+    void SetInfoScreen(bool enabled)
+    {
+        infoScreen.SetActive(enabled);
+        SetCamera(!enabled);
+        Cursor.visible = enabled;
+        Cursor.lockState = enabled ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
+    void SetCamera(bool enabled)
+    {
+        mouseLookPlayer.enabled = enabled;
+        mouseLookCamera.enabled = enabled;
+    }
+
+    public void ToggleDialogue()
+    {
+        SetInfoScreen(false);
+        SetCamera(isInDialogue);
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        isInDialogue = !isInDialogue;
     }
 }

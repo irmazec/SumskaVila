@@ -1,0 +1,23 @@
+{
+    "bear": {
+        "charName": "Freddie the Bear",
+        "questLines": [
+            "Hey! Please help me! I hungwyy....",
+            "Pleasepleasepleasepleasepleaseplease pleeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssee ."
+        ],
+        "repeatLines": [
+            "Please."
+        ],
+        "endLines": [
+            "Thx <3"
+        ],
+        "questItems": [
+            {
+                "charKey": "bear",
+                "questName": "Feed the Beast",
+                "questText": "Help Freddie the Bear find enough food to last him his winter sleep.",
+                "questLevel": "main"
+            }
+        ]
+    }
+}

@@ -5,15 +5,18 @@ using UnityEngine.Events;
 
 public class TriggerCounter : MonoBehaviour
 {
+    public string targetTag = null;
     public UnityEvent<int> countUpdateFunction;
 
     void OnTriggerEnter(Collider collider)
     {
-        countUpdateFunction.Invoke(1);
+        if (targetTag == null || collider.CompareTag(targetTag))
+            countUpdateFunction.Invoke(1);
     }
 
     void OnTriggerExit(Collider collider)
     {
-        countUpdateFunction.Invoke(-1);
+        if (targetTag == null || collider.CompareTag(targetTag))
+            countUpdateFunction.Invoke(-1);
     }
 }
