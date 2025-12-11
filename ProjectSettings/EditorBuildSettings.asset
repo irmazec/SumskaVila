@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: e1cef2afb17def74d953e28dda6bfc7a
+  - enabled: 1
+    path: Assets/Scenes/Lovro dev.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
