@@ -23,7 +23,7 @@ public class CharacterDialogue : MonoBehaviour
     private GameObject dialogueBox;
     private TextMeshProUGUI title;
     private TextMeshProUGUI textbox;
-    private CharInfo charInfo;
+    private DialogueInfo charInfo;
 
     void Start()
     {
@@ -32,7 +32,7 @@ public class CharacterDialogue : MonoBehaviour
         dialogueBox = GameManager.GM.dialogueBox;
         title = GameManager.GM.dialogueTitle;
         textbox = GameManager.GM.dialogueText;
-        charInfo = GameManager.GM.charQuests[charKey];
+        charInfo = GameManager.GM.dialogue[charKey];
     }
 
     void Update()
@@ -89,6 +89,7 @@ public class CharacterDialogue : MonoBehaviour
         {
             case 0:
                 StartCoroutine(PlayLines(charInfo.questLines));
+                GameManager.GM.AddCharQuests(charKey);
                 charInfo.dialogueProgress = 1;
                 break;
             case 1:
@@ -141,26 +142,3 @@ public class CharacterDialogue : MonoBehaviour
         playerControl.ToggleDialogue();
     }
 }
-
-public class CharInfo
-{
-    public string charName;
-
-    public List<string> questLines;
-    public List<string> repeatLines;
-    public List<string> endLines;
-
-    public List<QuestItem> questItems;
-
-    public int dialogueProgress = 0;
-}
-
-public struct QuestItem
-{
-    public string charKey;
-    public string questName;
-    public string questText;
-    public QuestLevel questLevel;
-}
-
-public enum QuestLevel { main, subquest, sidequest }

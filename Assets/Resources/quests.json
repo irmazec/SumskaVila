@@ -1,0 +1,33 @@
+{
+    "bear": [
+        {
+            "questKey": "bear",
+            "questLevel": 0,
+            "questTitle": "Feed the Beast",
+            "questText": "Help Freddie the Bear find enough food to last him his winter sleep.",
+            "questsToComplete": [ "fish", "pear", "pumpkin", "collectedFood" ]
+        },
+        {
+            "questKey": "fish",
+            "questLevel": 1,
+            "questText": "Find some fresh fish for Freddie."
+        },
+        {
+            "questKey": "pear",
+            "questLevel": 1,
+            "questText": "Find a juicy pear for Freddie."
+        },
+        {
+            "questKey": "pumpkin",
+            "questLevel": 1,
+            "questText": "Find a plump pumpkin for Freddie."
+        },
+        {
+            "questKey": "collectedFood",
+            "questLevel": 1,
+            "questText": "Bring the food you collected to Freddie.",
+            "unlocked": false,
+            "questsToUnlock": [ "fish", "pear", "pumpkin" ]
+        }
+    ]
+}
