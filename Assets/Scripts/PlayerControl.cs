@@ -133,8 +133,11 @@ public class PlayerControl : MonoBehaviour
 
     void SetCamera(bool enabled)
     {
-        mouseLookPlayer.enabled = enabled;
-        mouseLookCamera.enabled = enabled;
+        if (mouseLookPlayer != null)
+            mouseLookPlayer.enabled = enabled;
+
+        if (mouseLookCamera != null)
+            mouseLookCamera.enabled = enabled;
     }
 
     public void ToggleDialogue()
