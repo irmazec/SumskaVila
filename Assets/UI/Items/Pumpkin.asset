@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9755a9a2c2f28b641a08517df03fe2c2, type: 3}
-  m_Name: Coin
+  m_Name: Pumpkin
   m_EditorClassIdentifier: 
-  itemID: Coin
-  icon: {fileID: 21300000, guid: 17c327d10c293c643b0f9882a823918a, type: 3}
+  itemID: Pumpkin
+  icon: {fileID: 21300000, guid: fe6fa83bac758d344a2da24e4bf91240, type: 3}
