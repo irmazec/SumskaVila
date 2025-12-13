@@ -28,11 +28,12 @@ public class CharacterDialogue : MonoBehaviour
     void Start()
     {
         dialogueCanvas = GameManager.GM.dialogueCanvas;
-        tooltip = GameManager.GM.tooltip;
+        tooltip = GameManager.GM.dialogueTooltip;
         dialogueBox = GameManager.GM.dialogueBox;
         title = GameManager.GM.dialogueTitle;
         textbox = GameManager.GM.dialogueText;
         charInfo = GameManager.GM.dialogue[charKey];
+        GameManager.GM.OnDialogueUpdateNeeded += UpdateDialogueLevel;
     }
 
     void Update()
@@ -81,6 +82,12 @@ public class CharacterDialogue : MonoBehaviour
             playerNear = false;
     }
 
+    void UpdateDialogueLevel(string key)
+    {
+        if (key == charKey)
+            charInfo.dialogueProgress++;
+    }
+
     public void PlayDialogue()
     {
         // Check current dialogue progress and play appropriate lines
@@ -90,13 +97,18 @@ public class CharacterDialogue : MonoBehaviour
             case 0:
                 StartCoroutine(PlayLines(charInfo.questLines));
                 GameManager.GM.AddCharQuests(charKey);
-                charInfo.dialogueProgress = 1;
+                charInfo.dialogueProgress++;
                 break;
             case 1:
                 StartCoroutine(PlayLines(charInfo.repeatLines));
                 break;
             case 2:
-                StartCoroutine(PlayLines(charInfo.endLines));
+                StartCoroutine(PlayLines(charInfo.endQuestLines));
+                charInfo.dialogueProgress++;
+                GameManager.GM.CompleteQuest(charKey, charInfo.questToComplete);
+                break;
+            case 3:
+                StartCoroutine(PlayLines(charInfo.endRepeatLines));
                 break;
         }
     }

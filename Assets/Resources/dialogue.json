@@ -1,6 +1,7 @@
 {
     "bear": {
         "charName": "Freddie the Bear",
+        "questToComplete": "collectedFood",
         "questLines": [
             "Hey! Please help me! I hungwyy....",
             "Pleasepleasepleasepleasepleaseplease pleeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssee ."
@@ -8,7 +9,10 @@
         "repeatLines": [
             "Please."
         ],
-        "endLines": [
+        "endQuestLines": [
+            "WOWZA!! *chomp chomp*"
+        ],
+        "endRepeatLines": [
             "Thx <3"
         ]
     }

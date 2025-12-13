@@ -16,17 +16,14 @@ public class UIQuestItem : MonoBehaviour
     private List<string> questsToComplete;
     private List<string> questsToUnlock;
 
-    void Start()
+    public void InitQuest(string charKey, QuestInfo info)
     {
+        // Init properties
+        layoutGroup = GetComponent<VerticalLayoutGroup>();
+        defaultPadding = layoutGroup.padding.top;
         // Subscribe to quest events
         GameManager.GM.OnQuestCompleted += CompleteQuest;
         GameManager.GM.OnQuestUnlocked += UnlockQuest;
-    }
-
-    public void InitQuest(string charKey, QuestInfo info)
-    {
-        layoutGroup = GetComponent<VerticalLayoutGroup>();
-        defaultPadding = layoutGroup.padding.top;
 
         questCharKey = charKey;
         questKey = info.questKey;
