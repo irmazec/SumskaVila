@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
 
     public bool playerNear = false;
     public bool lookingAtItem = false;
-    private float raycastTime = 0;
+    private float raycastTime = 0f;
 
     private GameObject tooltip;
 
@@ -26,10 +26,16 @@ public class Item : MonoBehaviour
         if (playerNear && Time.time - raycastTime > 0.05f)
         {
             raycastTime = Time.time;
-            lookingAtItem = Array.Exists(
-                Physics.RaycastAll(Camera.main.transform.position, Camera.main.transform.forward, 10f),
-                hit => hit.collider.transform.CompareTag("Item")
-            );
+            RaycastHit hit;
+
+            lookingAtItem =
+                Physics.Raycast(
+                   Camera.main.transform.position,
+                   Camera.main.transform.forward,
+                   out hit,
+                   10f
+               )
+               && hit.collider.gameObject == gameObject;
         }
 
         // (De)Activate tooltip when it doesn't match expected state
@@ -38,7 +44,7 @@ public class Item : MonoBehaviour
 
         // Get input; E to pick up item
         var keyboard = Keyboard.current;
-        if (keyboard.eKey.wasPressedThisFrame && tooltip.activeInHierarchy)
+        if (keyboard.eKey.wasPressedThisFrame && lookingAtItem)
         {
             GameManager.GM.AddInventoryItem(new ItemInfo(this));
             tooltip.SetActive(false);
@@ -57,6 +63,7 @@ public class Item : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             playerNear = false;
+            lookingAtItem = false;
             tooltip.SetActive(false);
         }
     }
