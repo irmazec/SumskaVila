@@ -8,7 +8,10 @@ public class PlayerControl : MonoBehaviour
 {
     public float moveSpeed = 12.5f;
     public float jumpSpeed = 15;
+    
     public GameObject infoScreen;
+    public GameObject pauseMenu;       
+    private bool isPaused = false;
 
     private int moveFwd = 0;
     private int moveRight = 0;
@@ -30,6 +33,9 @@ public class PlayerControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         mouseLookPlayer = GetComponent<MouseLook>();
         mouseLookCamera = Camera.main.GetComponent<MouseLook>();
+
+        if (pauseMenu != null)
+            pauseMenu.SetActive(false);
     }
 
     void Update()
@@ -44,6 +50,7 @@ public class PlayerControl : MonoBehaviour
         moveRight = 0;
         moveUp = 0;
         usingSprint = false;
+
         if (keyboard.upArrowKey.isPressed || keyboard.wKey.isPressed)
             moveFwd += 1;
         if (keyboard.downArrowKey.isPressed || keyboard.sKey.isPressed)
@@ -88,6 +95,11 @@ public class PlayerControl : MonoBehaviour
         if (keyboard.tabKey.wasPressedThisFrame && !isInDialogue)
         {
             SetInfoScreen(!infoScreen.activeInHierarchy);
+        }
+
+        if ((keyboard[Key.P].wasPressedThisFrame && !isInDialogue) || (keyboard.escapeKey.wasPressedThisFrame && !isInDialogue))
+        {
+            TogglePause();
         }
     }
 
@@ -147,5 +159,28 @@ public class PlayerControl : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         isInDialogue = !isInDialogue;
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        pauseMenu.SetActive(isPaused);  // display pause menu
+
+        SetCamera(!isPaused);   // disable camera when paused
+
+        Cursor.visible = isPaused;
+        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+
+        Time.timeScale = isPaused ? 0f : 1f;    // pause time
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+
+#if UNITY_EDITOR
+    UnityEditor.EditorApplication.isPlaying = false; // stop play mode in editor
+#endif
     }
 }
