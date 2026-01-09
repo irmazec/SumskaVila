@@ -5,11 +5,15 @@ public class InfoScreen : MonoBehaviour
     public GameObject[] panels;   // map=0, quests=1, inventory=2
     public int startIndex = 0;
 
-    private int currentIndex;
+    private int currentIndex = -1; // -1=neinicijalizirano
 
     void OnEnable()
     {
-        currentIndex = Mathf.Clamp(startIndex, 0, panels.Length - 1);
+        if (currentIndex == -1)
+        {
+            currentIndex = Mathf.Clamp(startIndex, 0, panels.Length - 1);
+        }
+
         ShowCurrent();
     }
 
