@@ -15,5 +15,39 @@
         "endRepeatLines": [
             "Thx <3"
         ]
+    },
+    "bunny": {
+        "charName": "Freddie the Bear",
+        "questToComplete": "collectedFood",
+        "questLines": [
+            "Hey! Please help me! I hungwyy....",
+            "Pleasepleasepleasepleasepleaseplease pleeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssee ."
+        ],
+        "repeatLines": [
+            "Please."
+        ],
+        "endQuestLines": [
+            "WOWZA!! *chomp chomp*"
+        ],
+        "endRepeatLines": [
+            "Thx <3"
+        ]
+    },
+    "crow": {
+        "charName": "Freddie the Bear",
+        "questToComplete": "collectedFood",
+        "questLines": [
+            "Hey! Please help me! I hungwyy....",
+            "Pleasepleasepleasepleasepleaseplease pleeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssee ."
+        ],
+        "repeatLines": [
+            "Please."
+        ],
+        "endQuestLines": [
+            "WOWZA!! *chomp chomp*"
+        ],
+        "endRepeatLines": [
+            "Thx <3"
+        ]
     }
 }

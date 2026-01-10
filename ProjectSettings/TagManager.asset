@@ -7,6 +7,10 @@ TagManager:
   - Wall
   - NPC
   - Item
+  - lb_bird
+  - lb_groundTarget
+  - lb_perchTarget
+  - Terrain
   layers:
   - Default
   - TransparentFX
