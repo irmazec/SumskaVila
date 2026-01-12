@@ -19,7 +19,7 @@
     },
     "bunny": {
         "charName": "Zec Zoran",
-        "questToComplete": "findingNemo",
+        "questToComplete": "alertingNemo",
         "questLines": [
             "Dobar dan, dobar dan!",
             "Znate prijatelju, uskoro ću i ja poći u zimske krpe. Zamotat ću se snijegom i zemljom kako kažu naši pretci!",

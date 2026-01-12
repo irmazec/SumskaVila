@@ -69,12 +69,20 @@
             "questLevel": 0,
             "questTitle": "Gdje li je za jazbina?",
             "questText": "Pomozi Zoranu pronaći njegovu jazbinu.",
-            "questsToComplete": [ "findingNemo"]
+            "questsToComplete": [ "findingNemo", "alertingNemo"]
         },
         {
             "questKey": "findingNemo",
             "questLevel": 1,
             "questText": "- Pronađi jazbinu. Zoran je već jako nervozan oko njezina nestanka."
+        },
+        {
+            "questKey": "treasureHunt",
+            "questLevel": 1,
+            "questText": "- Javi Zoranu da si pronašao njegovu jazbinu.",
+            "unlocked": false,
+            "questsToUnlock": [ "findingNemo"],
+            "updatesDialogue": "onUnlock"
         }
     ]
 }
