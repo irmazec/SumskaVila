@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Bson;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,26 +9,34 @@ public class PlayerControl : MonoBehaviour
 {
     public float moveSpeed = 12.5f;
     public float jumpSpeed = 15;
-    
+    public float maxSprintFactor = 3;
+    public Vector2 mapStartCorner;
+    public Vector2 mapEndCorner;
+    public int mapTop;
+
     public GameObject infoScreen;
     public GameObject pauseMenu;       
     private bool isPaused = false;
 
+    private float defaultMoveSpeed;
     private int moveFwd = 0;
     private int moveRight = 0;
     private int moveUp = 0;
     private bool usingSprint = false;
+    private float sprintStarted = 0;
     private bool useJump = false;
     private bool isFlying = false;
     private float jumpInputTimestamp = 0;
     private int isOnFloor = 0;
     private bool isInDialogue = false;
+    private float[] borderDistances = new float[] { };
     private Rigidbody rb;
     private MouseLook mouseLookPlayer;
     private MouseLook mouseLookCamera;
 
     void Start()
     {
+        defaultMoveSpeed = moveSpeed;
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -60,8 +69,12 @@ public class PlayerControl : MonoBehaviour
         if (keyboard.leftArrowKey.isPressed || keyboard.aKey.isPressed)
             moveRight -= 1;
         if (keyboard.leftCtrlKey.isPressed)
+        {
             usingSprint = true;
-        
+            if (sprintStarted == 0) sprintStarted = Time.time;
+        }
+        else sprintStarted = 0;
+
         // Jump and fly toggle
         if (keyboard.spaceKey.wasPressedThisFrame)
         {
@@ -97,10 +110,21 @@ public class PlayerControl : MonoBehaviour
             SetInfoScreen(!infoScreen.activeInHierarchy);
         }
 
+        // Pause menu toggle
         if ((keyboard[Key.P].wasPressedThisFrame && !isInDialogue) || (keyboard.escapeKey.wasPressedThisFrame && !isInDialogue))
         {
             TogglePause();
         }
+
+        // Border logic
+        borderDistances = new float[] {
+                    Mathf.Abs(transform.position.x - mapStartCorner.x),
+                    Mathf.Abs(transform.position.x - mapEndCorner.x),
+                    Mathf.Abs(transform.position.z - mapStartCorner.y),
+                    Mathf.Abs(transform.position.z - mapEndCorner.y),
+                    Mathf.Abs(transform.position.y - mapTop)
+        };
+        moveSpeed = defaultMoveSpeed * (1 - (10 - Mathf.Min(Mathf.Min(borderDistances), 10)) * 0.08f);
     }
 
     void FixedUpdate()
@@ -109,7 +133,8 @@ public class PlayerControl : MonoBehaviour
             return;
 
         // Horizontal movement direction
-        Vector3 moveDir = (moveFwd * new Vector3(transform.forward.x, 0, transform.forward.z) + moveRight * transform.right).normalized * (usingSprint ? 1.5f : 1);
+        Vector3 moveDir = (moveFwd * new Vector3(transform.forward.x, 0, transform.forward.z) + moveRight * transform.right).normalized;
+        moveDir *= usingSprint ? Mathf.Min(4, Mathf.Max(1.5f, 1.5f + (int)(Time.time - sprintStarted - 10) * 0.05f)) : 1;
         
         // Vertical velocity setup (gravity, flying mode, jump)
         float verticalVelocity = rb.velocity.y;
