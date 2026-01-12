@@ -34,29 +34,29 @@
     "crow" : [
         {
             "questKey": "crow",
-            "questLevel": 2,
+            "questLevel": 0,
             "questTitle": "Potraga za blagom",
             "questText": "Pomozi Veroniki pronaći izgubljena blaga.",
             "questsToComplete": [ "walnut", "necklace", "coin", "treasureHunt" ]
         },
         {
             "questKey": "walnut",
-            "questLevel": 3,
+            "questLevel": 1,
             "questText": "- Pronađi orah koji je ispao Veroniki."
         },
         {
             "questKey": "necklace",
-            "questLevel": 3,
+            "questLevel": 1,
             "questText": "- Pronađi ogrlicu koju je Veronika izgubila."
         },
         {
             "questKey": "coin",
-            "questLevel": 3,
+            "questLevel": 1,
             "questText": "- Pronađi Veronikin svjetlucavi novčić."
         },
         {
             "questKey": "treasureHunt",
-            "questLevel": 3,
+            "questLevel": 1,
             "questText": "- Odnesi sve sakupljene stvarčice Veroniki.",
             "unlocked": false,
             "questsToUnlock": [ "walnut", "necklace", "coin" ],
@@ -66,29 +66,29 @@
     "bunny" : [
         {
             "questKey": "bunny",
-            "questLevel": 4,
+            "questLevel": 0,
             "questTitle": "Mali zečevi vole bubamare",
             "questText": "Pomozi Zoranu naći poklone za njegovu obitelj.",
             "questsToComplete": [ "ladybug", "crystal", "mushroom", "giftThyNeighbour" ]
         },
         {
             "questKey": "ladybug",
-            "questLevel": 5,
+            "questLevel": 1,
             "questText": "- Pronađi bubamaru. Navodno su omiljeni ljubimac malim zečevima."
         },
         {
             "questKey": "crystal",
-            "questLevel": 5,
+            "questLevel": 1,
             "questText": "- Pronađi kristal za Zorana. Njegova mama vjeruje da će izliječiti bol u njenim zečjim križima."
         },
         {
             "questKey": "mushroom",
-            "questLevel": 5,
+            "questLevel": 1,
             "questText": "- Pronađi gljivu za Zorana. Tko ne voli gulaš od gljiva po zimi?"
         },
         {
             "questKey": "giftThyNeighbour",
-            "questLevel": 5,
+            "questLevel": 1,
             "questText": "- Odnesi sve poklone Zoranu.",
             "unlocked": false,
             "questsToUnlock": [ "ladybug", "crystal", "mushroom" ],
