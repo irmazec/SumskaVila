@@ -3,31 +3,95 @@
         {
             "questKey": "bear",
             "questLevel": 0,
-            "questTitle": "Feed the Beast",
-            "questText": "Help Freddie the Bear find enough food to last him his winter sleep.",
+            "questTitle": "Nahrani zvjer",
+            "questText": "Pomozi Ferdi sakupiti hranu za zimski san!",
             "questsToComplete": [ "fish", "pear", "pumpkin", "collectedFood" ]
         },
         {
             "questKey": "fish",
             "questLevel": 1,
-            "questText": "- Find some fresh fish for Freddie."
+            "questText": "- Pronađi svježu ribu za Ferdu."
         },
         {
             "questKey": "pear",
             "questLevel": 1,
-            "questText": "- Find a juicy pear for Freddie."
+            "questText": "- Pronađi sočnu krušku za Ferdu."
         },
         {
             "questKey": "pumpkin",
             "questLevel": 1,
-            "questText": "- Find a plump pumpkin for Freddie."
+            "questText": "- Pronađi savršeno okruglu bundevu za Ferdu."
         },
         {
             "questKey": "collectedFood",
             "questLevel": 1,
-            "questText": "- Bring the food you collected to Freddie.",
+            "questText": "- Odnesi svu skupljenu hranu Ferdi.",
             "unlocked": false,
             "questsToUnlock": [ "fish", "pear", "pumpkin" ],
+            "updatesDialogue": "onUnlock"
+        }
+    ],
+    "crow" : [
+        {
+            "questKey": "crow",
+            "questLevel": 2,
+            "questTitle": "Potraga za blagom",
+            "questText": "Pomozi Veroniki pronaći izgubljena blaga.",
+            "questsToComplete": [ "walnut", "necklace", "coin", "treasureHunt" ]
+        },
+        {
+            "questKey": "walnut",
+            "questLevel": 3,
+            "questText": "- Pronađi orah koji je ispao Veroniki."
+        },
+        {
+            "questKey": "necklace",
+            "questLevel": 3,
+            "questText": "- Pronađi ogrlicu koju je Veronika izgubila."
+        },
+        {
+            "questKey": "coin",
+            "questLevel": 3,
+            "questText": "- Pronađi Veronikin svjetlucavi novčić."
+        },
+        {
+            "questKey": "treasureHunt",
+            "questLevel": 3,
+            "questText": "- Odnesi sve sakupljene stvarčice Veroniki.",
+            "unlocked": false,
+            "questsToUnlock": [ "walnut", "necklace", "coin" ],
+            "updatesDialogue": "onUnlock"
+        }
+    ],
+    "bunny" : [
+        {
+            "questKey": "bunny",
+            "questLevel": 4,
+            "questTitle": "Mali zečevi vole bubamare",
+            "questText": "Pomozi Zoranu naći poklone za njegovu obitelj.",
+            "questsToComplete": [ "ladybug", "crystal", "mushroom", "giftThyNeighbour" ]
+        },
+        {
+            "questKey": "ladybug",
+            "questLevel": 5,
+            "questText": "- Pronađi bubamaru. Navodno su omiljeni ljubimac malim zečevima."
+        },
+        {
+            "questKey": "crystal",
+            "questLevel": 5,
+            "questText": "- Pronađi kristal za Zorana. Njegova mama vjeruje da će izliječiti bol u njenim zečjim križima."
+        },
+        {
+            "questKey": "mushroom",
+            "questLevel": 5,
+            "questText": "- Pronađi gljivu za Zorana. Tko ne voli gulaš od gljiva po zimi?"
+        },
+        {
+            "questKey": "giftThyNeighbour",
+            "questLevel": 5,
+            "questText": "- Odnesi sve poklone Zoranu.",
+            "unlocked": false,
+            "questsToUnlock": [ "ladybug", "crystal", "mushroom" ],
             "updatesDialogue": "onUnlock"
         }
     ]

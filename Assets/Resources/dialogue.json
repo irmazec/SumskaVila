@@ -1,53 +1,56 @@
 {
     "bear": {
-        "charName": "Freddie the Bear",
+        "charName": "Medo Ferdo",
         "questToComplete": "collectedFood",
         "questLines": [
-            "Hey! Please help me! I hungwyy....",
-            "Pleasepleasepleasepleasepleaseplease pleeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssee ."
+            "Joj ne bi te htjel smetat...",
+            "Joj pa znaš ja ti se spremam za spavanac, al eto joj nisam još skupil svu hranu...",
+            "Jel znaš nekog možda ko bi mi mogao pomoći, naime jako sam pospan..."
         ],
         "repeatLines": [
-            "Please."
+            "Ako nije problem, naravno, mogu i ja sam ali..."
         ],
         "endQuestLines": [
-            "WOWZA!! *chomp chomp*"
+            "M LJ A C !"
         ],
         "endRepeatLines": [
-            "Thx <3"
+            "Hvala ti na pomoći! Stvarno se nadam da ti nisam zel previše vremena..."
         ]
     },
     "bunny": {
-        "charName": "Freddie the Bear",
-        "questToComplete": "collectedFood",
+        "charName": "Zec Zoran",
+        "questToComplete": "giftThyNeighbour",
         "questLines": [
-            "Hey! Please help me! I hungwyy....",
-            "Pleasepleasepleasepleasepleaseplease pleeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssee ."
+            "Dobar dan, dobar dan!",
+            "Znate prijatelju, uskoro ću i ja poći u zimske krpe. Zamotat ću se snijegom i zemljom kako kažu naši pretci!",
+            "Al vidite prijatelju, zaboravio sam kupiti poklone svojoj familiji, je je ima ih bome. Biste li mogli pomoći ikako prijatelju?"
         ],
         "repeatLines": [
-            "Please."
+            "Samo polako! Nema žurbe u ovim krajevima!"
         ],
         "endQuestLines": [
-            "WOWZA!! *chomp chomp*"
+            "Najdublje zahvale na Vašoj pomoći prijatelju!"
         ],
         "endRepeatLines": [
-            "Thx <3"
+            "Od srca mojeg mekanog hvala Vam!"
         ]
     },
     "crow": {
-        "charName": "Freddie the Bear",
-        "questToComplete": "collectedFood",
+        "charName": "Vrana Veronika",
+        "questToComplete": "treasureHunt",
         "questLines": [
-            "Hey! Please help me! I hungwyy....",
-            "Pleasepleasepleasepleasepleaseplease pleeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssee ."
+            "Dobar dan ti želim.",
+            "Imaš li sekundu molim te?",
+            "Naime, izgubila sam par sitnica po šumi i stvarno bih cijenila tvoju pomoć. Možeš li ih potražiti? Tu su negdje sigurna sam..."
         ],
         "repeatLines": [
-            "Please."
+            "Molim te požuri, nemamo čitav dan."
         ],
         "endQuestLines": [
-            "WOWZA!! *chomp chomp*"
+            "Vidim da si se snašao. Hvala ti."
         ],
         "endRepeatLines": [
-            "Thx <3"
+            "Zapamtiti ću ovo."
         ]
     }
 }
