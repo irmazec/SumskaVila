@@ -67,32 +67,14 @@
         {
             "questKey": "bunny",
             "questLevel": 0,
-            "questTitle": "Mali zečevi vole bubamare",
-            "questText": "Pomozi Zoranu naći poklone za njegovu obitelj.",
-            "questsToComplete": [ "ladybug", "crystal", "mushroom", "giftThyNeighbour" ]
+            "questTitle": "Gdje li je za jazbina?",
+            "questText": "Pomozi Zoranu pronaći njegovu jazbinu.",
+            "questsToComplete": [ "findingNemo"]
         },
         {
-            "questKey": "ladybug",
+            "questKey": "findingNemo",
             "questLevel": 1,
-            "questText": "- Pronađi bubamaru. Navodno su omiljeni ljubimac malim zečevima."
-        },
-        {
-            "questKey": "crystal",
-            "questLevel": 1,
-            "questText": "- Pronađi kristal za Zorana. Njegova mama vjeruje da će izliječiti bol u njenim zečjim križima."
-        },
-        {
-            "questKey": "mushroom",
-            "questLevel": 1,
-            "questText": "- Pronađi gljivu za Zorana. Tko ne voli gulaš od gljiva po zimi?"
-        },
-        {
-            "questKey": "giftThyNeighbour",
-            "questLevel": 1,
-            "questText": "- Odnesi sve poklone Zoranu.",
-            "unlocked": false,
-            "questsToUnlock": [ "ladybug", "crystal", "mushroom" ],
-            "updatesDialogue": "onUnlock"
+            "questText": "- Pronađi jazbinu. Zoran je već jako nervozan oko njezina nestanka."
         }
     ]
 }

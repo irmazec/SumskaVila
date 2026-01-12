@@ -19,11 +19,11 @@
     },
     "bunny": {
         "charName": "Zec Zoran",
-        "questToComplete": "giftThyNeighbour",
+        "questToComplete": "findingNemo",
         "questLines": [
             "Dobar dan, dobar dan!",
             "Znate prijatelju, uskoro ću i ja poći u zimske krpe. Zamotat ću se snijegom i zemljom kako kažu naši pretci!",
-            "Al vidite prijatelju, zaboravio sam kupiti poklone svojoj familiji, je je ima ih bome. Biste li mogli pomoći ikako prijatelju?"
+            "Al vidite prijatelju, problem je kaj ne mogu pronaći svoju jazbinu. Možete li mi ikako pomoći s time?"
         ],
         "repeatLines": [
             "Samo polako! Nema žurbe u ovim krajevima!"
