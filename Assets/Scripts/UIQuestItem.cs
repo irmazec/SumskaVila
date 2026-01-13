@@ -51,7 +51,7 @@ public class UIQuestItem : MonoBehaviour
         if (key == questKey)
         {
             if (title != null)
-                title.fontStyle = FontStyles.Bold | FontStyles.Strikethrough | FontStyles.Italic;
+                title.fontStyle = FontStyles.Bold | FontStyles.Underline | FontStyles.Strikethrough | FontStyles.Italic;
             text.fontStyle = FontStyles.Strikethrough | FontStyles.Italic;
         }
         else if (questsToComplete?.Contains(key) == true)

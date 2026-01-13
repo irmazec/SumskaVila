@@ -9,8 +9,8 @@ public class Item : MonoBehaviour
     public string questCharKey;
     public string questKey;
 
-    public bool playerNear = false;
-    public bool lookingAtItem = false;
+    private bool playerNear = false;
+    private bool lookingAtItem = false;
     private float raycastTime = 0f;
 
     private GameObject tooltip;

@@ -101,8 +101,6 @@ MonoBehaviour:
   itemName: walnut
   questCharKey: crow
   questKey: walnut
-  playerNear: 0
-  lookingAtItem: 0
 --- !u!1 &6697592941505266087
 GameObject:
   m_ObjectHideFlags: 0

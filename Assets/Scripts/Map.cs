@@ -18,9 +18,9 @@ public class Map : MonoBehaviour
     void Start()
     {
         xRange = Mathf.Abs(bottomLeftCoords.x - topRightCoords.x);
-        barWidth = GetComponent<RectTransform>().rect.width;
+        barWidth = GetComponent<RectTransform>().rect.width - playerIndicator.rectTransform.rect.width;
         yRange = Mathf.Abs(bottomLeftCoords.y - topRightCoords.y);
-        barHeight = GetComponent<RectTransform>().rect.height;
+        barHeight = GetComponent<RectTransform>().rect.height - playerIndicator.rectTransform.rect.height;
     }
 
     void FixedUpdate()

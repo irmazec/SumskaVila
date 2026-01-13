@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     public GameObject pickupTooltip;
     public List<ItemInfo> items = new();
 
+    private bool lairDiscovered = false;
+
     void Awake()
     {
         GM = this;
@@ -45,13 +47,17 @@ public class GameManager : MonoBehaviour
     // Add all quests for a given character to the Quest UI; check if any are already finished
     public void AddCharQuests(string charKey)
     {
+        Debug.Log(charKey);
         foreach (QuestInfo quest in quests[charKey])
         {
             GameObject q = Instantiate(quest.questLevel == 0 ? questPrefab : subquestPrefab, questBox);
             q.GetComponent<UIQuestItem>().InitQuest(charKey, quest);
         }
 
-        CheckInventory();
+        if (charKey == "bunny" && lairDiscovered)
+            CompleteQuest(charKey, "lairSearch");
+        else if (charKey != "bunny")
+            CheckInventory();
     }
 
     // Mark quest as complete, update UI and update character dialogue if needed
@@ -97,6 +103,12 @@ public class GameManager : MonoBehaviour
             if (item.questKey != "" && quests[item.questCharKey].Find(q => q.questKey == item.questKey).unlocked)
                 CompleteQuest(item.questCharKey, item.questKey);
         }
+    }
+
+    // Helper function to be called by bunny lair trigger
+    public void setLairDiscovered(bool value)
+    {
+        lairDiscovered = value;
     }
 }
 

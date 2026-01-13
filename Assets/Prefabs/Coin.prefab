@@ -101,8 +101,6 @@ MonoBehaviour:
   itemName: coin
   questCharKey: crow
   questKey: coin
-  playerNear: 0
-  lookingAtItem: 0
 --- !u!1 &8639057266457928604
 GameObject:
   m_ObjectHideFlags: 0

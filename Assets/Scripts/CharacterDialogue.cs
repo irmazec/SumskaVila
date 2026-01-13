@@ -10,8 +10,8 @@ public class CharacterDialogue : MonoBehaviour
 {
     public string charKey;
 
-    private bool playerNear = false;
-    private bool lookingAtNpc = false;
+    public bool playerNear = false;
+    public bool lookingAtNpc = false;
     private float raycastTime = 0;
     private bool playingDialogue = false;
     private bool enterPressed = false;
@@ -38,31 +38,34 @@ public class CharacterDialogue : MonoBehaviour
 
     void Update()
     {
-        // Check if player is looking at NPC, but only so often and if the player is near (in the dialogue detection area)
-        if (playerNear && Time.time - raycastTime > 0.05f)
+        if (playerNear)     // Script should operate only if the player is near (in the dialogue detection area)
         {
-            raycastTime = Time.time;
-            lookingAtNpc = Array.Exists(
-                Physics.RaycastAll(Camera.main.transform.position, Camera.main.transform.forward, 10f),
-                hit => hit.collider.transform.CompareTag("NPC")
-            );
-        }
+            // Check if player is looking at NPC, but only so often
+            if (Time.time - raycastTime > 0.05f)
+            {
+                raycastTime = Time.time;
+                lookingAtNpc = Array.Exists(
+                    Physics.RaycastAll(Camera.main.transform.position, Camera.main.transform.forward, 10f),
+                    hit => hit.collider.transform.CompareTag("NPC")
+                );
+            }
 
-        // (De)Activate dialogue canvas when it doesn't match expected state
-        if (dialogueCanvas.activeInHierarchy != (playerNear && lookingAtNpc))
-            dialogueCanvas.SetActive(playerNear && lookingAtNpc);
+            // (De)Activate dialogue canvas when it doesn't match expected state
+            if (dialogueCanvas.activeInHierarchy != lookingAtNpc)
+                dialogueCanvas.SetActive(lookingAtNpc);
 
-        // Update inputs; Enter to skip/advance dialogue (if playing), E to begin dialogue otherwise
-        var keyboard = Keyboard.current;
-        if (playingDialogue)
-        {
-            if (keyboard.enterKey.wasPressedThisFrame)
-                enterPressed = true;
-        }
-        else if (dialogueCanvas.activeInHierarchy)
-        {
-            if (keyboard.eKey.wasPressedThisFrame)
-                PlayDialogue();
+            // Update inputs; Enter/Space to skip/advance dialogue (if playing), E to begin dialogue otherwise
+            var keyboard = Keyboard.current;
+            if (playingDialogue)
+            {
+                if (keyboard.enterKey.wasPressedThisFrame || keyboard.spaceKey.wasPressedThisFrame)
+                    enterPressed = true;
+            }
+            else if (dialogueCanvas.activeInHierarchy)
+            {
+                if (keyboard.eKey.wasPressedThisFrame)
+                    PlayDialogue();
+            }
         }
     }
 
@@ -79,7 +82,11 @@ public class CharacterDialogue : MonoBehaviour
     void OnTriggerExit(Collider collider)
     {
         if (collider.CompareTag("Player"))
+        {
             playerNear = false;
+            lookingAtNpc = false;
+            dialogueCanvas.SetActive(false);
+        }
     }
 
     void UpdateDialogueLevel(string key)

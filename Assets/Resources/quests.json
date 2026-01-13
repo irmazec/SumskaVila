@@ -3,8 +3,8 @@
         {
             "questKey": "bear",
             "questLevel": 0,
-            "questTitle": "Nahrani zvjer",
-            "questText": "Pomozi Ferdi sakupiti hranu za zimski san!",
+            "questTitle": "Nahrani zvijer",
+            "questText": "Pomozi Ferdi prikupiti hranu za zimski san!",
             "questsToComplete": [ "fish", "pear", "pumpkin", "collectedFood" ]
         },
         {
@@ -37,7 +37,7 @@
             "questLevel": 0,
             "questTitle": "Potraga za blagom",
             "questText": "Pomozi Veroniki pronaći izgubljena blaga.",
-            "questsToComplete": [ "walnut", "necklace", "coin", "treasureHunt" ]
+            "questsToComplete": [ "walnut", "necklace", "coin", "collectedTreasures" ]
         },
         {
             "questKey": "walnut",
@@ -55,7 +55,7 @@
             "questText": "- Pronađi Veronikin svjetlucavi novčić."
         },
         {
-            "questKey": "treasureHunt",
+            "questKey": "collectedTreasures",
             "questLevel": 1,
             "questText": "- Odnesi sve sakupljene stvarčice Veroniki.",
             "unlocked": false,
@@ -67,21 +67,21 @@
         {
             "questKey": "bunny",
             "questLevel": 0,
-            "questTitle": "Gdje li je za jazbina?",
+            "questTitle": "Gdje li je ta jazbina?",
             "questText": "Pomozi Zoranu pronaći njegovu jazbinu.",
-            "questsToComplete": [ "findingNemo", "alertingNemo"]
+            "questsToComplete": [ "lairSearch", "foundLair" ]
         },
         {
-            "questKey": "findingNemo",
+            "questKey": "lairSearch",
             "questLevel": 1,
-            "questText": "- Pronađi jazbinu. Zoran je već jako nervozan oko njezina nestanka."
+            "questText": "- Pronađi Zoranovu zagubljenu zemljanu jazbinu."
         },
         {
-            "questKey": "treasureHunt",
+            "questKey": "foundLair",
             "questLevel": 1,
             "questText": "- Javi Zoranu da si pronašao njegovu jazbinu.",
             "unlocked": false,
-            "questsToUnlock": [ "findingNemo"],
+            "questsToUnlock": [ "lairSearch" ],
             "updatesDialogue": "onUnlock"
         }
     ]
