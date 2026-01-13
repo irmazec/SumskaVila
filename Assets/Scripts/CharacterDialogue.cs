@@ -10,8 +10,8 @@ public class CharacterDialogue : MonoBehaviour
 {
     public string charKey;
 
-    public bool playerNear = false;
-    public bool lookingAtNpc = false;
+    private bool playerNear = false;
+    private bool lookingAtNpc = false;
     private float raycastTime = 0;
     private bool playingDialogue = false;
     private bool enterPressed = false;
