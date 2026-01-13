@@ -29,7 +29,7 @@ public class IntroText : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))    //skip s enter ili lijevi klik
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))    //skip s enter, space ili lijevi klik
         {
             if (isTyping)
             {

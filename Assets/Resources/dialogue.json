@@ -3,9 +3,9 @@
         "charName": "Medo Ferdo",
         "questToComplete": "collectedFood",
         "questLines": [
-            "Joj ne bi te htjel smetat...",
+            "Joj ne bih te htjel smetat...",
             "Joj pa znaš ja ti se spremam za spavanac, al eto joj nisam još skupil svu hranu...",
-            "Jel znaš nekog možda ko bi mi mogao pomoći, naime jako sam pospan..."
+            "Jel znaš nekog možda tko bi mi mogao pomoći, naime jako sam pospan..."
         ],
         "repeatLines": [
             "Ako nije problem, naravno, mogu i ja sam ali..."
@@ -23,7 +23,7 @@
         "questLines": [
             "Dobar dan, dobar dan!",
             "Znate prijatelju, uskoro ću i ja poći u zimske krpe. Zamotat ću se snijegom i zemljom kako kažu naši pretci!",
-            "Al vidite prijatelju, problem je kaj ne mogu pronaći svoju jazbinu. Možete li mi ikako pomoći s time?"
+            "Ali vidite prijatelju, problem je što ne mogu pronaći svoju jazbinu. Možete li mi ikako pomoći s time?"
         ],
         "repeatLines": [
             "Samo polako! Nema žurbe u ovim krajevima!"
@@ -40,7 +40,7 @@
         "questToComplete": "collectedTreasures",
         "questLines": [
             "Dobar dan ti želim.",
-            "Imaš li sekundu molim te?",
+            "Imaš li sekundu, molim te?",
             "Naime, izgubila sam par sitnica po šumi i stvarno bih cijenila tvoju pomoć. Možeš li ih potražiti? Tu su negdje sigurna sam..."
         ],
         "repeatLines": [

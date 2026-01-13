@@ -4852,9 +4852,9 @@ AudioSource:
   Priority: 170
   DopplerLevel: 0
   MinDistance: 0.5
-  MaxDistance: 4.5
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -4862,23 +4862,77 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      time: 0.040114593
+      value: 0.9883919
+      inSlope: -80.03187
+      outSlope: -80.03187
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      time: 0.05458679
+      value: 0.6480255
+      inSlope: -8.603902
+      outSlope: -8.603902
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 1
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.105221555
+      value: 0.37478638
+      inSlope: -3.1719906
+      outSlope: -3.1719906
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.6634043
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.15522918
+      value: 0.22949219
+      inSlope: -1.2504979
+      outSlope: -1.2504979
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.23747559
+      value: 0.14666748
+      inSlope: -0.31262448
+      outSlope: -0.31262448
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.43352357
+      value: 0.080596924
+      inSlope: -0.07815612
+      outSlope: -0.07815612
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.8
+      value: 0.033050537
+      inSlope: -0.17360967
+      outSlope: -0.17360967
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.234714
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.9980469
+      value: 0.0009033205
+      inSlope: -0.012504985
+      outSlope: -0.012504985
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

@@ -57,7 +57,7 @@
         {
             "questKey": "collectedTreasures",
             "questLevel": 1,
-            "questText": "- Odnesi sve sakupljene stvarčice Veroniki.",
+            "questText": "- Odnesi sve skupljene stvarčice Veroniki.",
             "unlocked": false,
             "questsToUnlock": [ "walnut", "necklace", "coin" ],
             "updatesDialogue": "onUnlock"
