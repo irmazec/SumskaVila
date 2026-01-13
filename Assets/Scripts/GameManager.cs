@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
 
+    public GameObject gameEndScreen;
+    [HideInInspector] public bool gameEndScreenActive = false;
+
     [Header("Dialogue")]
     public GameObject dialogueCanvas;
     public GameObject dialogueTooltip;
@@ -34,6 +37,8 @@ public class GameManager : MonoBehaviour
     public GameObject pickupTooltip;
     public List<ItemInfo> items = new();
 
+    private int questCount = 0;
+    private HashSet<string> completedQuests = new();
     private bool lairDiscovered = false;
 
     void Awake()
@@ -41,6 +46,19 @@ public class GameManager : MonoBehaviour
         GM = this;
         dialogue = JsonConvert.DeserializeObject<Dictionary<string, DialogueInfo>>(Resources.Load<TextAsset>("dialogue").text);
         quests = JsonConvert.DeserializeObject<Dictionary<string, List<QuestInfo>>>(Resources.Load<TextAsset>("quests").text);
+
+        foreach (List<QuestInfo> questList in quests.Values)
+            questCount += questList.Count;
+    }
+
+    void Update()
+    {
+        if (completedQuests.Count == questCount && !dialogueCanvas.activeInHierarchy && !gameEndScreen.activeInHierarchy)
+        {
+            completedQuests.Add("gameEnded");
+            gameEndScreen.SetActive(true);
+            gameEndScreenActive = true;
+        }
     }
 
 
@@ -66,6 +84,7 @@ public class GameManager : MonoBehaviour
         QuestInfo quest = quests[charKey].Find(q => q.questKey == questKey);
         quest.completed = true;
         OnQuestCompleted?.Invoke(questKey);
+        completedQuests.Add(questKey);
         
         if (quest.updatesDialogue == DialogueUpdateOptions.onComplete)
             OnDialogueUpdateNeeded?.Invoke(charKey);
@@ -106,9 +125,20 @@ public class GameManager : MonoBehaviour
     }
 
     // Helper function to be called by bunny lair trigger
-    public void setLairDiscovered(bool value)
+    public void SetLairDiscovered(bool value)
     {
         lairDiscovered = value;
+        CompleteQuest("bunny", "lairSearch");
+    }
+
+    // Helper function to be called by game end screen
+    public void ContinueFromEndScreen()
+    {
+        gameEndScreen.SetActive(false);
+        gameEndScreenActive = false;
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
 

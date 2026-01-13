@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -49,10 +50,30 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        if (Time.time - jumpInputTimestamp > 0.1f)
-            useJump = false;
+        if (GameManager.GM.gameEndScreenActive)
+        {
+            if (Time.timeScale != 0)
+            {
+                Time.timeScale = 0;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            return;
+        }
 
         var keyboard = Keyboard.current;
+
+        // Pause menu toggle
+        if ((keyboard[Key.P].wasPressedThisFrame && !isInDialogue) || (keyboard.escapeKey.wasPressedThisFrame && !isInDialogue))
+        {
+            TogglePause();
+        }
+
+        if (isPaused)
+            return;
+
+        if (Time.time - jumpInputTimestamp > 0.1f)
+            useJump = false;
 
         // Basic inputs (left, right, up, sprint)
         moveFwd = 0;
@@ -108,12 +129,6 @@ public class PlayerControl : MonoBehaviour
         if (keyboard.tabKey.wasPressedThisFrame && !isInDialogue)
         {
             SetInfoScreen(!infoScreen.activeInHierarchy);
-        }
-
-        // Pause menu toggle
-        if ((keyboard[Key.P].wasPressedThisFrame && !isInDialogue) || (keyboard.escapeKey.wasPressedThisFrame && !isInDialogue))
-        {
-            TogglePause();
         }
 
         // Border logic
@@ -183,6 +198,7 @@ public class PlayerControl : MonoBehaviour
         SetCamera(isInDialogue);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        rb.constraints = isInDialogue ? RigidbodyConstraints.FreezeRotation : RigidbodyConstraints.FreezeAll;
         isInDialogue = !isInDialogue;
     }
 
@@ -200,12 +216,8 @@ public class PlayerControl : MonoBehaviour
         Time.timeScale = isPaused ? 0f : 1f;    // pause time
     }
 
-    public void QuitGame()
+    public void QuitToTitle()
     {
-        Application.Quit();
-
-#if UNITY_EDITOR
-    UnityEditor.EditorApplication.isPlaying = false; // stop play mode in editor
-#endif
+        SceneManager.LoadSceneAsync(0);
     }
 }

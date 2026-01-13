@@ -21,7 +21,7 @@ public class SceneNavigation : MonoBehaviour
         // provjeri jel postoji sljedeca
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(nextSceneIndex);
+            SceneManager.LoadSceneAsync(nextSceneIndex);
         }
         else
         {
@@ -37,7 +37,7 @@ public class SceneNavigation : MonoBehaviour
         // provjeri jel postoji
         if (previousSceneIndex >= 0)
         {
-            SceneManager.LoadScene(previousSceneIndex);
+            SceneManager.LoadSceneAsync(previousSceneIndex);
         }
         else
         {
