@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -900,9 +900,15 @@ MonoBehaviour:
   BackButton: {fileID: 644911473}
   lettersPerSecond: 30
   sentences:
-  - "YOOO OVO JE \u0160UMSKA VILA"
-  - lol tekst wowwwoowoo
-  - "okej jel \u017Eelis igrat."
+  - "Dobrodo\u0161ao!"
+  - Imamo bitan zadatak pred nama.
+  - "\u017Divotinje u \u0161umi se spremanju za zimski san i na nama je pomo\u0107i
+    im!"
+  - "Koristi WASD za kretanje i mi\u0161 kako bi gledao okolo."
+  - "Kartu, sakupljene stvar\u010Dice i zadatke mo\u017Ee\u0161 vidjeti pritiskom
+    na tipku Tab."
+  - "A kako bi imao interakciju s ne\u010Dim stisni E!"
+  - "Mo\u017Eemo mi to, sretno!!"
 --- !u!1 &1395469002
 GameObject:
   m_ObjectHideFlags: 0
