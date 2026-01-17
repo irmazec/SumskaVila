@@ -13,6 +13,11 @@ public class SceneNavigation : MonoBehaviour
     public Button backButton;
     public Button quitButton;
 
+    void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     // sljedeca scena (+1)
     public void GoToNextScene()
     {
