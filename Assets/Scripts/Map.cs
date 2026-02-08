@@ -8,7 +8,7 @@ public class Map : MonoBehaviour
     public Vector2 bottomLeftCoords;
     public Vector2 topRightCoords;
     public Transform player;
-    public RawImage playerIndicator;
+    public RectTransform playerIndicator;
 
     private float xRange;
     private float yRange;   // represents z range in world coords, y in canvas
@@ -18,14 +18,14 @@ public class Map : MonoBehaviour
     void Start()
     {
         xRange = Mathf.Abs(bottomLeftCoords.x - topRightCoords.x);
-        barWidth = GetComponent<RectTransform>().rect.width - playerIndicator.rectTransform.rect.width;
+        barWidth = GetComponent<RectTransform>().rect.width - playerIndicator.rect.width;
         yRange = Mathf.Abs(bottomLeftCoords.y - topRightCoords.y);
-        barHeight = GetComponent<RectTransform>().rect.height - playerIndicator.rectTransform.rect.height;
+        barHeight = GetComponent<RectTransform>().rect.height - playerIndicator.rect.height;
     }
 
     void FixedUpdate()
     {
-        playerIndicator.rectTransform.anchoredPosition = new Vector2(
+        playerIndicator.anchoredPosition = new Vector2(
             (Mathf.Clamp(player.position.x, bottomLeftCoords.x, topRightCoords.x) - bottomLeftCoords.x) * barWidth / xRange,
             (Mathf.Clamp(player.position.z, bottomLeftCoords.y, topRightCoords.y) - bottomLeftCoords.y) * barHeight / yRange
         );

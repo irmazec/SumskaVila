@@ -7,6 +7,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     public Transform inventoryBox;
     public GameObject pickupTooltip;
     public List<ItemInfo> items = new();
+    public event Action<string> OnItemCollected;
 
     private int questCount = 0;
     private HashSet<string> completedQuests = new();
@@ -108,7 +110,7 @@ public class GameManager : MonoBehaviour
     public void AddInventoryItem(ItemInfo item)
     {
         items.Add(item);
-        inventoryBox.Find(item.itemName.FirstCharacterToUpper()).GetChild(0).gameObject.SetActive(true);
+        OnItemCollected.Invoke(item.itemName);
 
         if (item.questKey != "" && quests[item.questCharKey].Find(q => q.questKey == item.questKey).unlocked)
             CompleteQuest(item.questCharKey, item.questKey);
@@ -129,6 +131,7 @@ public class GameManager : MonoBehaviour
     {
         lairDiscovered = value;
         CompleteQuest("bunny", "lairSearch");
+        OnItemCollected.Invoke("lair");
     }
 
     // Helper function to be called by game end screen
